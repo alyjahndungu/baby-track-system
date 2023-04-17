@@ -25,10 +25,11 @@ public class Children {
     private  String registrationNumber;
     private  String dateOfBirth;
     private  String gender;
-    private  Integer weight;
-    @ManyToOne
-    @JoinColumn(name = "mother_id", nullable = false)
-    private Mothers mothers;
+    private  Double  weight;
+    private  String mothersName;
+    private Integer mothersAge;
+    private  String mothersOccupation;
+    private  String  mothersMaritalStatus;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
