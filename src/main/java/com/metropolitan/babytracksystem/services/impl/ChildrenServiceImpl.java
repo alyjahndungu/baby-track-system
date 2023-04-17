@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ChildrenServiceImpl  implements ChildrenService  {
+public class ChildrenServiceImpl implements ChildrenService {
     private final ChildrenRepository childrenRepository;
 
     @Override

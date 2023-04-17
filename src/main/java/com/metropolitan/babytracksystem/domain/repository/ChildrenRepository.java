@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ChildrenRepository extends JpaRepository< Children, Long> {
+public interface ChildrenRepository extends JpaRepository<Children, Long> {
     Optional<Children> findById(long id);
+
     List<Children> findByNameContainingIgnoreCase(String name);
 
 }
