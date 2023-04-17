@@ -1,9 +1,7 @@
 package com.metropolitan.babytracksystem.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -13,8 +11,10 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
 @DynamicUpdate
+@Builder
+@Entity
 @Table(name = "children")
 public class Children {
     @Id
@@ -26,6 +26,9 @@ public class Children {
     private  String dateOfBirth;
     private  String gender;
     private  Integer weight;
+    @ManyToOne
+    @JoinColumn(name = "mother_id", nullable = false)
+    private Mothers mothers;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
