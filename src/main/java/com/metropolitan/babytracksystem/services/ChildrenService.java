@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface ChildrenService {
     Children addChildren(ChildrenDto childrenDto);
-
     Children updateChildren(Long id, ChildrenDto childrenDto);
     Page<Children> getAllChildren(int page, int size);
     List<Children> searchChildrenByName(String name);

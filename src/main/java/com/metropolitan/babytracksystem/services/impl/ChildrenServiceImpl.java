@@ -2,7 +2,6 @@ package com.metropolitan.babytracksystem.services.impl;
 
 import com.metropolitan.babytracksystem.domain.dto.ChildrenDto;
 import com.metropolitan.babytracksystem.domain.entity.Children;
-import com.metropolitan.babytracksystem.domain.repository.ChildrenPaginationRepository;
 import com.metropolitan.babytracksystem.domain.repository.ChildrenRepository;
 import com.metropolitan.babytracksystem.exceptions.NotFoundException;
 import com.metropolitan.babytracksystem.services.ChildrenService;
