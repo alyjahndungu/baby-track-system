@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChildrenServiceImpl  implements ChildrenService  {
     private final ChildrenRepository childrenRepository;
-    private final ChildrenPaginationRepository childrenPaginationRepository;
 
     @Override
     public Children addChildren(ChildrenDto childrenDto) {
@@ -38,6 +37,9 @@ public class ChildrenServiceImpl  implements ChildrenService  {
     public Children updateChildren(Long id, ChildrenDto childrenDto) {
         Children updateChild = getChildren(id);
         updateChild.setName(childrenDto.name());
+        updateChild.setPlaceOfBirth(childrenDto.placeOfBirth());
+        updateChild.setWeight(childrenDto.weight());
+        updateChild.setDateOfBirth(childrenDto.dateOfBirth());
         updateChild.setWeight(childrenDto.weight());
         updateChild.setMothersMaritalStatus(String.valueOf(childrenDto.mothersMaritalStatus()));
         return childrenRepository.save(updateChild);
