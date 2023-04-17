@@ -11,7 +11,7 @@ public record ChildrenDto(String name,
                           String dateOfBirth,
                           @Enumerated(EnumType.STRING)
                           Gender gender,
-                          Integer weight,
+                          Double weight,
                           String mothersName,
                           Integer mothersAge,
                           String mothersOccupation,

@@ -6,6 +6,7 @@ import com.metropolitan.babytracksystem.domain.entity.Children;
 import com.metropolitan.babytracksystem.services.ChildrenService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -13,6 +14,8 @@ import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,13 +37,13 @@ public class ChildrenController {
 
     @GetMapping("search")
     public ResponseEntity<Object> searchChildrenByName(@RequestParam String name) {
-        Children children =  childrenService.searchChildrenByName(name);
+        List<Children> children =  childrenService.searchChildrenByName(name);
         return  ResponseHandler.generateResponse("Success", HttpStatus.OK, children);
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllChildren(@SortDefault.SortDefaults({@SortDefault(sort = "id", direction = Sort.Direction.DESC)}) Pageable pageable) {
-       Page<Children> children =  childrenService.getAllChildren(pageable);
+    public ResponseEntity<Object> getAllChildren(@RequestParam(defaultValue = "0") int page, @RequestParam (defaultValue = "10") int size ) {
+       Page<Children> children =  childrenService.getAllChildren(page,  size);
         return  ResponseHandler.generateResponse("Success", HttpStatus.OK, children);
     }
 
