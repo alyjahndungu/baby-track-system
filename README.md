@@ -173,3 +173,29 @@
     "code": 200,
     "data": []
 })
+
+# DART GAME API SOLUTION
+
+### getScores (x=0; y=10) (GET - localhost:8087/api/v1/dart/scores?xCoordinate=0&yCoordinate=10)
+### RESPONSE ({
+    "message": "Scores evaluated successfully",
+    "status": "OK",
+    "code": 200,
+    "data": {
+        "xCoordinate": 0.0,
+        "yCoordinate": 10.0,
+        "points": 1
+    }
+})
+
+### getScores (x=1; y=4) (GET - localhost:8087/api/v1/dart/scores?xCoordinate=1&yCoordinate=4)
+### RESPONSE ({
+    "message": "Scores evaluated successfully",
+    "status": "OK",
+    "code": 200,
+    "data": {
+        "xCoordinate": 1.0,
+        "yCoordinate": 4.0,
+        "points": 5
+    }
+})

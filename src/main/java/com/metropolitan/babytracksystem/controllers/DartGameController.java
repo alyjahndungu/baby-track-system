@@ -1,7 +1,9 @@
 package com.metropolitan.babytracksystem.controllers;
 
+import com.metropolitan.babytracksystem.configuration.ResponseHandler;
 import com.metropolitan.babytracksystem.domain.dto.DartGameResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "api/v1/dart/scores")
 public class DartGameController {
     @GetMapping
-    public ResponseEntity<Object> getDartScores(@RequestParam("xCoordinate") double xCoordinate, @RequestParam("yCoordinate") double yCoordinate) {
-        int points = scoreDart(xCoordinate, yCoordinate);
+    public ResponseEntity<Object> getDartScores(@RequestParam("xCoordinate") double xCoordinate,  @RequestParam("yCoordinate") double yCoordinate) {
+        int points = scores(xCoordinate, yCoordinate);
         DartGameResponse  dartGameResponse = new DartGameResponse(xCoordinate, yCoordinate, points);
-        return ResponseEntity.ok().body(dartGameResponse);
+        return ResponseHandler.generateResponse("Scores evaluated successfully", HttpStatus.OK, dartGameResponse);
     }
-    public static int scoreDart(double x, double y) {
+    public static int scores(double x, double y) {
         double area = Math.sqrt(x * x + y * y);
         if (area > 10.0) {
             return 0;
