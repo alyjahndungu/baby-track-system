@@ -1,5 +1,6 @@
 package com.metropolitan.babytracksystem.domain.entity;
 
+import com.metropolitan.babytracksystem.utils.MaskData;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,6 +23,8 @@ public class Children {
     private Long id;
     private  String name;
     private  String placeOfBirth;
+
+    @MaskData
     private  String registrationNumber;
     private  String dateOfBirth;
     private  String gender;
